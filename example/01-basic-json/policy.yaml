@@ -1,0 +1,5 @@
+policies:
+- name: "Check environment production"
+  description: "We want to make sure that the environment is set to production"
+  severity: "error"
+  rule: "input.environment == 'production'"

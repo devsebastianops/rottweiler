@@ -1,0 +1,23 @@
+{
+  "scripts": {
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
+  },
+  "name": "rottweiler docs",
+  "version": "1.0.0",
+  "description": "Rottweiler Documentation",
+  "keywords": [
+    "rottweiler",
+    "documentation"
+  ],
+  "author": "DevSebastianOps <hi@devsebastianops.com>",
+  "license": "MIT",
+  "type": "commonjs",
+  "devDependencies": {
+    "mermaid": "^11.16.0",
+    "vitepress": "^1.6.4",
+    "vitepress-plugin-mermaid": "^2.0.17",
+    "vue": "^3.5.40"
+  }
+}
