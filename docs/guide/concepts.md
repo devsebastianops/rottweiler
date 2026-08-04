@@ -28,4 +28,4 @@ So you do not need to learn a new language to write policies, you can use CEL ex
 
 Rottweiler is a powerful companion and you now know the core concepts behind it. Start playing with it and see how it can help you ensure that your rules and standards are being followed.
 
-In case you want to learn more about Rottweiler, check out the [Configuration Overview](/configuration/overview) or the [Real world Examples](/examples/real-world).
+In case you want to learn more about Rottweiler, check out the [Configuration Overview](/configuration/overview) or the [Real world Examples](/examples/overview).
