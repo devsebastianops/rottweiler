@@ -1,0 +1,19 @@
+/* docs/.vitepress/theme/custom.css */
+
+:root {
+  --vp-c-brand-1: #A65E24;
+  --vp-c-brand-2: #8A4D1C;
+  --vp-c-brand-3: #6B3E1F;
+  --vp-c-brand-soft: rgba(166, 94, 36, 0.14);
+  --vp-c-warning-1: #D08B2E;
+}
+
+.VPButton.brand {
+  border-color: var(--vp-c-brand-1) !important;
+  background-color: var(--vp-c-brand-1) !important;
+}
+
+.VPButton.brand:hover {
+  border-color: var(--vp-c-brand-2) !important;
+  background-color: var(--vp-c-brand-2) !important;
+}
