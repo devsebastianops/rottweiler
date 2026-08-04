@@ -1,6 +1,8 @@
 package cli
 
 import (
+	"os"
+
 	"github.com/devsebastianops/rottweiler/internal/logger"
 	"github.com/devsebastianops/rottweiler/internal/parser"
 	"github.com/devsebastianops/rottweiler/internal/policy"
@@ -67,6 +69,11 @@ func check() error {
 		persistentFlags.Format,
 		persistentFlags.Silent,
 	)
+
+	if validationResult.HasErrors() {
+		os.Exit(1)
+		return nil
+	}
 
 	return nil
 }

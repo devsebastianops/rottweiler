@@ -24,17 +24,20 @@ func Validate(policyFile policy.PolicyFile, inputData map[string]interface{}, st
 	validationResult := emptyValidationResult()
 
 	// Check policies
-	for _, policy := range policyFile.Policies {
+	for _, p := range policyFile.Policies {
 		// Evaluate the policy rule using CEL
-		result, err := evalCelCondition(policy.Rule, env, inputData, strict)
+		result, err := evalCelCondition(p.Rule, env, inputData, strict)
 
 		if err != nil {
 			return validationResult, err
 		}
 
 		if !result {
-			finding := NewFinding(policy)
+			finding := NewFinding(p)
 			validationResult.AddFinding(finding)
+			if p.Severity == policy.SeverityFatal {
+				return validationResult, &policy.PolicyFatalError{Policy: p}
+			}
 		} else {
 			validationResult.AddCheckedPolicy()
 		}

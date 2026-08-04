@@ -64,3 +64,11 @@ type InvalidPolicyError struct {
 func (e *InvalidPolicyError) Error() string {
 	return "invalid policy: " + e.Reason
 }
+
+type PolicyFatalError struct {
+	Policy Policy
+}
+
+func (e *PolicyFatalError) Error() string {
+	return "fatal policy violation: " + e.Policy.Name + " - " + e.Policy.Description + " - Rule: " + e.Policy.Rule
+}

@@ -78,40 +78,16 @@ const config = defineConfig({
               link: "/configuration/overview"
             },
             {
-              text: "Transform",
-              link: "/configuration/transform"
+              text: "Rules",
+              link: "/configuration/rules"
             },
             {
-              text: "Target",
-              link: "/configuration/target"
+              text: "Reporting",
+              link: "/configuration/reporting"
             },
             {
-              text: "Interpolation",
-              link: "/configuration/interpolation"
-            },
-            {
-              text: "Conditions",
-              link: "/configuration/conditions"
-            },
-            {
-              text: "Loops",
-              link: "/configuration/loops"
-            },
-            {
-              text: "Includes",
-              link: "/configuration/includes"
-            },
-            {
-              text: "Deep Merge",
-              link: "/configuration/deep-merge"
-            },
-            {
-              text: "Schema Validation",
-              link: "/configuration/schema-validation"
-            },
-            {
-              text: "Extending Watt TF",
-              link: "/configuration/plugins"
+              text: "Severities",
+              link: "/configuration/severity"
             }
           ]
         }
@@ -128,16 +104,24 @@ const config = defineConfig({
               link: "/examples/overview"
             },
             {
-              text: "Terraform Modules",
-              link: "/examples/modules"
+              text: "GitHub Workflow Validation",
+              link: "/examples/ci-cd-pipeline-validation"
             },
             {
-              text: "Multi Environment",
-              link: "/examples/multi-environment"
+              text: "Docker Compose Check",
+              link: "/examples/docker-compose-check"
             },
             {
-              text: "Platform Engineering",
-              link: "/examples/platform-engineering"
+              text: "Package Governance",
+              link: "/examples/package-governance"
+            },
+            {
+              text: "Swagger / OpenAPI Governance",
+              link: "/examples/swagger-openapi-governance"
+            },
+            {
+              text: "Terraform Plan Validation",
+              link: "/examples/terraform-plan-validation"
             }
           ]
         }

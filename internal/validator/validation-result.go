@@ -54,13 +54,16 @@ func emptyValidationResult() ValidationResult {
 func (vr *ValidationResult) AddFinding(finding Finding) {
 	vr.Summary.CheckedPolicies++
 	switch finding.Severity {
-	case "error":
+	case policy.SeverityFatal:
 		vr.Errors = append(vr.Errors, finding)
 		vr.Summary.Errors++
-	case "warning":
+	case policy.SeverityError:
+		vr.Errors = append(vr.Errors, finding)
+		vr.Summary.Errors++
+	case policy.SeverityWarn:
 		vr.Warnings = append(vr.Warnings, finding)
 		vr.Summary.Warnings++
-	case "info":
+	case policy.SeverityInfo:
 		vr.Infos = append(vr.Infos, finding)
 		vr.Summary.Infos++
 	}
