@@ -1,0 +1,10 @@
+policies:
+- name: "Check environment production"
+  description: "We want to make sure that the environment is set to production"
+  severity: "error"
+  rule: "input.environment == 'production'"
+  rationale: "Ensuring that the environment is set to production helps prevent accidental deployments to non-production environments."
+  remediation: "Verify the environment configuration and ensure that it is set to 'production' before proceeding with deployments."
+  references:
+    - "https://example.com/docs/environment-configuration"
+    - "https://example.com/best-practices/deployment-environments"
