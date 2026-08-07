@@ -16,6 +16,9 @@ The Rottweiler policy file is the core definition of your rules. It follows a st
 | `description` | `string` | A brief description of the policy. |
 | `rule` | `string` | The CEL expression that defines the rule. |
 | `severity` | `string` | The severity level of the policy (e.g., `error`, `info`, `warning`, `fatal`). |
+| `rationale` | `string` | (Optional) The rationale behind the policy. |
+| `remediation` | `string` | (Optional) Suggested remediation steps for the policy. |
+| `references` | `array` | (Optional) A list of references or links related to the policy. |
 
 ## Example Policy File
 
@@ -25,6 +28,10 @@ policies:
     description: "Ensure that S3 buckets are not publicly accessible."
     rule: "input.resource.type == 'aws_s3_bucket' && input.resource.public_access == true"
     severity: "error"
+    rationale: "Public S3 buckets can lead to data leaks and security vulnerabilities."
+    remediation: "Restrict public access to the S3 bucket by updating its ACL and bucket policy."
+    references:
+      - "https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html"
 
   - name: "EC2 Instance Type Check"
     description: "Ensure that EC2 instances are of a specific type."

@@ -5,17 +5,23 @@ type PolicyFile struct {
 }
 
 type Policy struct {
-	Name        string `json:"name" yaml:"name"`
-	Description string `json:"description" yaml:"description"`
-	Rule        string `json:"rule" yaml:"rule"`
-	Severity    string `json:"severity" yaml:"severity"`
-	Status      string `json:"status" yaml:"status"`
+	Name        string   `json:"name" yaml:"name"`
+	Description string   `json:"description" yaml:"description"`
+	Rule        string   `json:"rule" yaml:"rule"`
+	Rationale   string   `json:"rationale,omitempty" yaml:"rationale,omitempty"`
+	Remediation string   `json:"remediation,omitempty" yaml:"remediation,omitempty"`
+	References  []string `json:"references,omitempty" yaml:"references,omitempty"`
+	Severity    string   `json:"severity" yaml:"severity"`
+	Status      string   `json:"status" yaml:"status"`
 }
 
 func NewPolicy(
 	name,
 	description,
 	rule,
+	rationale,
+	remediation string,
+	references []string,
 	severity,
 	status string,
 ) (Policy, error) {
@@ -52,6 +58,9 @@ func NewPolicy(
 		Name:        name,
 		Description: description,
 		Rule:        rule,
+		Rationale:   rationale,
+		Remediation: remediation,
+		References:  references,
 		Severity:    severity,
 		Status:      status,
 	}, nil

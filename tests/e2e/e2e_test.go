@@ -145,8 +145,8 @@ func compareFindings(a, b []validator.Finding) bool {
 		return false
 	}
 
-	for i := range a {
-		if a[i] != b[i] {
+	for k, v := range a {
+		if !v.Equals(b[k]) {
 			return false
 		}
 	}
