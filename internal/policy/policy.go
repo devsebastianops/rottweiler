@@ -5,6 +5,7 @@ type PolicyFile struct {
 }
 
 type Policy struct {
+	Id          string   `json:"id,omitempty" yaml:"id,omitempty"`
 	Name        string   `json:"name" yaml:"name"`
 	Description string   `json:"description" yaml:"description"`
 	Rule        string   `json:"rule" yaml:"rule"`
@@ -16,6 +17,7 @@ type Policy struct {
 }
 
 func NewPolicy(
+	id,
 	name,
 	description,
 	rule,
@@ -55,6 +57,7 @@ func NewPolicy(
 	}
 
 	return Policy{
+		Id:          id,
 		Name:        name,
 		Description: description,
 		Rule:        rule,
