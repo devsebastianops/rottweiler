@@ -28,6 +28,7 @@ Each policy consists of the following fields:
 
 Additionally, policies can include the following optional fields to provide more context and guidance:
 
+- `id`: A unique identifier for the policy, which can be used for tracking and referencing specific policies.
 - `rationale`: A brief explanation of why the policy exists and what it aims to prevent or enforce.
 - `remediation`: Suggested steps or actions to take when the policy is violated, helping users understand how to resolve issues.
 - `references`: A list of external links or references that provide additional information or context related to the policy. This can include documentation, best practices, or relevant articles.

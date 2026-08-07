@@ -16,6 +16,7 @@ The Rottweiler policy file is the core definition of your rules. It follows a st
 | `description` | `string` | A brief description of the policy. |
 | `rule` | `string` | The CEL expression that defines the rule. |
 | `severity` | `string` | The severity level of the policy (e.g., `error`, `info`, `warning`, `fatal`). |
+| `id` | `string` | (Optional) A unique identifier for the policy. |
 | `rationale` | `string` | (Optional) The rationale behind the policy. |
 | `remediation` | `string` | (Optional) Suggested remediation steps for the policy. |
 | `references` | `array` | (Optional) A list of references or links related to the policy. |
@@ -24,7 +25,8 @@ The Rottweiler policy file is the core definition of your rules. It follows a st
 
 ```yaml
 policies:
-  - name: "No Public S3 Buckets"
+  - id: "INT-AWS-1219"
+    name: "No Public S3 Buckets"
     description: "Ensure that S3 buckets are not publicly accessible."
     rule: "input.resource.type == 'aws_s3_bucket' && input.resource.public_access == true"
     severity: "error"
