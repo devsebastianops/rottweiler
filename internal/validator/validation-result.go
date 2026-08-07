@@ -21,10 +21,13 @@ type Summary struct {
 }
 
 type Finding struct {
-	Policy      string `json:"policy" yaml:"policy"`
-	Description string `json:"description" yaml:"description"`
-	Severity    string `json:"severity" yaml:"severity"`
-	Rule        string `json:"rule" yaml:"rule"`
+	Policy      string   `json:"policy" yaml:"policy"`
+	Description string   `json:"description" yaml:"description"`
+	Rationale   string   `json:"rationale,omitempty" yaml:"rationale,omitempty"`
+	Remediation string   `json:"remediation,omitempty" yaml:"remediation,omitempty"`
+	References  []string `json:"references,omitempty" yaml:"references,omitempty"`
+	Severity    string   `json:"severity" yaml:"severity"`
+	Rule        string   `json:"rule" yaml:"rule"`
 }
 
 func NewFinding(policy policy.Policy) Finding {
@@ -32,9 +35,50 @@ func NewFinding(policy policy.Policy) Finding {
 	return Finding{
 		Policy:      policy.Name,
 		Description: policy.Description,
+		Rationale:   policy.Rationale,
+		Remediation: policy.Remediation,
+		References:  policy.References,
 		Severity:    policy.Severity,
 		Rule:        policy.Rule,
 	}
+}
+
+func (f *Finding) Equals(other Finding) bool {
+	if f.Policy != other.Policy {
+		return false
+	}
+
+	if f.Description != other.Description {
+		return false
+	}
+
+	if f.Rationale != other.Rationale {
+		return false
+	}
+
+	if f.Remediation != other.Remediation {
+		return false
+	}
+
+	if f.Severity != other.Severity {
+		return false
+	}
+
+	if f.Rule != other.Rule {
+		return false
+	}
+
+	if len(f.References) != len(other.References) {
+		return false
+	}
+
+	for i, ref := range f.References {
+		if ref != other.References[i] {
+			return false
+		}
+	}
+
+	return true
 }
 
 func emptyValidationResult() ValidationResult {
@@ -91,4 +135,39 @@ func (vr *ValidationResult) HasInfos() bool {
 
 func (vr *ValidationResult) ToJSON() ([]byte, error) {
 	return json.Marshal(vr)
+}
+
+func (vr *ValidationResult) Equals(other ValidationResult) bool {
+	if vr.Summary.CheckedPolicies != other.Summary.CheckedPolicies ||
+		vr.Summary.Errors != other.Summary.Errors ||
+		vr.Summary.Warnings != other.Summary.Warnings ||
+		vr.Summary.Infos != other.Summary.Infos {
+		return false
+	}
+
+	if len(vr.Errors) != len(other.Errors) ||
+		len(vr.Warnings) != len(other.Warnings) ||
+		len(vr.Infos) != len(other.Infos) {
+		return false
+	}
+
+	for i, finding := range vr.Errors {
+		if finding.Equals(other.Errors[i]) == false {
+			return false
+		}
+	}
+
+	for i, finding := range vr.Warnings {
+		if finding.Equals(other.Warnings[i]) == false {
+			return false
+		}
+	}
+
+	for i, finding := range vr.Infos {
+		if finding.Equals(other.Infos[i]) == false {
+			return false
+		}
+	}
+
+	return true
 }

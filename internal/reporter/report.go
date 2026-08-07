@@ -46,23 +46,40 @@ func reportTextOrPretty(validationResult validator.ValidationResult) {
 	}
 
 	if validationResult.HasErrors() {
-		logger.Infof("Errors:")
-		for _, finding := range validationResult.Errors {
-			logger.Infof("- Policy: %s\n  Description: %s\n  Severity: %s\n  Rule: %s\n", finding.Policy, finding.Description, finding.Severity, finding.Rule)
-		}
+
+		reportFindings(validationResult.Errors, "Errors")
 	}
 
 	if validationResult.HasWarnings() {
-		logger.Infof("Warnings:")
-		for _, finding := range validationResult.Warnings {
-			logger.Infof("- Policy: %s\n  Description: %s\n  Severity: %s\n  Rule: %s\n", finding.Policy, finding.Description, finding.Severity, finding.Rule)
-		}
+
+		reportFindings(validationResult.Warnings, "Warnings")
 	}
 
 	if validationResult.HasInfos() {
-		logger.Infof("Infos:")
-		for _, finding := range validationResult.Infos {
-			logger.Infof("- Policy: %s\n  Description: %s\n  Severity: %s\n  Rule: %s\n", finding.Policy, finding.Description, finding.Severity, finding.Rule)
+
+		reportFindings(validationResult.Infos, "Infos")
+	}
+}
+
+func reportFindings(findings []validator.Finding, title string) {
+	if len(findings) == 0 {
+		return
+	}
+
+	logger.Infof("%s:", title)
+	for _, finding := range findings {
+		logger.Infof("- Policy: %s\n  Description: %s\n  Severity: %s\n  Rule: %s\n", finding.Policy, finding.Description, finding.Severity, finding.Rule)
+		if finding.Rationale != "" {
+			logger.Infof("  Rationale: %s\n", finding.Rationale)
+		}
+		if finding.Remediation != "" {
+			logger.Infof("  Remediation: %s\n", finding.Remediation)
+		}
+		if len(finding.References) > 0 {
+			logger.Infof("  References:")
+			for _, ref := range finding.References {
+				logger.Infof("    - %s", ref)
+			}
 		}
 	}
 }
