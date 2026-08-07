@@ -21,6 +21,7 @@ type Summary struct {
 }
 
 type Finding struct {
+	Id          string   `json:"id,omitempty" yaml:"id,omitempty"`
 	Policy      string   `json:"policy" yaml:"policy"`
 	Description string   `json:"description" yaml:"description"`
 	Rationale   string   `json:"rationale,omitempty" yaml:"rationale,omitempty"`
@@ -33,6 +34,7 @@ type Finding struct {
 func NewFinding(policy policy.Policy) Finding {
 
 	return Finding{
+		Id:          policy.Id,
 		Policy:      policy.Name,
 		Description: policy.Description,
 		Rationale:   policy.Rationale,
@@ -44,6 +46,10 @@ func NewFinding(policy policy.Policy) Finding {
 }
 
 func (f *Finding) Equals(other Finding) bool {
+	if f.Id != other.Id {
+		return false
+	}
+
 	if f.Policy != other.Policy {
 		return false
 	}
