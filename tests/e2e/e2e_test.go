@@ -6,10 +6,10 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/devsebastianops/rottweiler/internal/logger"
-	"github.com/devsebastianops/rottweiler/internal/parser"
 	"github.com/devsebastianops/rottweiler/internal/policy"
 	"github.com/devsebastianops/rottweiler/internal/validator"
+	"github.com/devsebastianops/x/logger"
+	"github.com/devsebastianops/x/parser"
 )
 
 func TestE2EExamples(t *testing.T) {

@@ -3,7 +3,7 @@ package policy
 import (
 	"os"
 
-	"github.com/devsebastianops/rottweiler/internal/logger"
+	"github.com/devsebastianops/x/logger"
 	"gopkg.in/yaml.v3"
 )
 
