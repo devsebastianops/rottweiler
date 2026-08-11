@@ -19,4 +19,4 @@ jobs:
     uses: devsebastianops/github-workflows/.github/workflows/test-install-script.yaml@main
     secrets: inherit
     with:
-      binary-name: "rottweiler"
+      binary: "rottweiler"
