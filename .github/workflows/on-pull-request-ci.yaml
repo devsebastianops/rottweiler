@@ -10,13 +10,13 @@ on:
   
 jobs:
   lint:
-    uses: devsebastianops/github-workflows/.github/workflows/lint.yaml@main
+    uses: devsebastianops/github-workflows/.github/workflows/lint.yaml@v1.0.0
     secrets: inherit
   e2e:
-    uses: devsebastianops/github-workflows/.github/workflows/test.yaml@main
+    uses: devsebastianops/github-workflows/.github/workflows/test.yaml@v1.0.0
     secrets: inherit
   test-install-script:
-    uses: devsebastianops/github-workflows/.github/workflows/test-install-script.yaml@main
+    uses: devsebastianops/github-workflows/.github/workflows/test-install-script.yaml@v1.0.0
     secrets: inherit
     with:
       binary: "rottweiler"

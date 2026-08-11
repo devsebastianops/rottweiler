@@ -11,20 +11,20 @@ on:
 
 jobs:
   docker:
-    uses: devsebastianops/github-workflows/.github/workflows/release-docker.yaml@main
+    uses: devsebastianops/github-workflows/.github/workflows/release-docker.yaml@v1.0.0
     secrets: inherit
     with:
       binary: "rottweiler"
 
   go:
-    uses: devsebastianops/github-workflows/.github/workflows/release-go.yaml@main
+    uses: devsebastianops/github-workflows/.github/workflows/release-go.yaml@v1.0.0
     secrets: inherit
     with:
       binary: "rottweiler"
       
 
   github-pages:
-    uses: devsebastianops/github-workflows/.github/workflows/release-github-pages.yaml@main
+    uses: devsebastianops/github-workflows/.github/workflows/release-github-pages.yaml@v1.0.0
     secrets: inherit
     with:
       binary: "rottweiler"
