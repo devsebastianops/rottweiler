@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/devsebastianops/rottweiler/internal/logger"
+	"github.com/devsebastianops/x/logger"
 	"github.com/google/cel-go/cel"
 )
 

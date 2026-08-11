@@ -4,7 +4,7 @@ import (
 	"os"
 
 	"github.com/devsebastianops/rottweiler/internal/cli"
-	"github.com/devsebastianops/rottweiler/internal/logger"
+	"github.com/devsebastianops/x/logger"
 )
 
 func main() {

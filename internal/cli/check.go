@@ -3,11 +3,11 @@ package cli
 import (
 	"os"
 
-	"github.com/devsebastianops/rottweiler/internal/logger"
-	"github.com/devsebastianops/rottweiler/internal/parser"
 	"github.com/devsebastianops/rottweiler/internal/policy"
 	"github.com/devsebastianops/rottweiler/internal/reporter"
 	"github.com/devsebastianops/rottweiler/internal/validator"
+	"github.com/devsebastianops/x/logger"
+	"github.com/devsebastianops/x/parser"
 	"github.com/spf13/cobra"
 )
 

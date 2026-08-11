@@ -3,8 +3,8 @@ package reporter
 import (
 	"fmt"
 
-	"github.com/devsebastianops/rottweiler/internal/logger"
 	"github.com/devsebastianops/rottweiler/internal/validator"
+	"github.com/devsebastianops/x/logger"
 )
 
 func Report(validationResult validator.ValidationResult, logFormat string, silent bool) {

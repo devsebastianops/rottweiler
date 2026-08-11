@@ -1,7 +1,7 @@
 package cli
 
 import (
-	"github.com/devsebastianops/rottweiler/internal/logger"
+	"github.com/devsebastianops/x/logger"
 	"github.com/spf13/cobra"
 )
 
