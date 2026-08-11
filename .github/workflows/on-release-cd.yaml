@@ -26,5 +26,3 @@ jobs:
   github-pages:
     uses: devsebastianops/github-workflows/.github/workflows/release-github-pages.yaml@v1.0.0
     secrets: inherit
-    with:
-      binary: "rottweiler"
